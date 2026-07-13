@@ -7,6 +7,8 @@
       el nombre real del TP y el grupo.
 - [ ] `cp main/secrets.h.example main/secrets.h` y completar WiFi +
       ThingsBoard access token.
+- [ ] `.github/workflows/build.yml` una vez creado el proyecto específico del TP, 
+      configurar sólo la placa que  se utilizará y verificar que funciona el CI en github Actions.
 - [ ] Completar la implementación de `components/services/wifi`,
       `components/services/thingsboard` y `components/services/storage`
       (son esqueletos con `TODO`, se implementan una única vez y se
