@@ -1,0 +1,11 @@
+# Tabla de particiones - ESP32-P4-Module-DEV-KIT-A (16MB Flash) grupo 2
+# Name,       Type, SubType,  Offset,    Size,     Flags
+nvs,          data, nvs,      0x9000,    0x6000,
+phy_init,     data, phy,      0xf000,    0x1000,
+factory,      app,  factory,  0x10000,   0x300000,
+# Reservado para modelos de reconocimiento facial (ESP-WHO/ESP-DL)
+model,        data, 0x40,     0x310000,  0x400000,
+# NVS extendido para almacenar feature vectors de faces enrolled
+face_db,      data, nvs,      0x710000,  0x100000,
+# Resto disponible
+storage,      data, fat,      0x810000,  0x7F0000,

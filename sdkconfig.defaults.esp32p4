@@ -2,3 +2,10 @@
 # El P4 no tiene WiFi/BT propio: la conectividad se resuelve vía el
 # ESP32-C6 co-procesado (esp_hosted / SDIO). Ver docs/boards/esp32p4.md.
 CONFIG_SPIRAM=y
+# Configura la Flash externa del P4 (usualmente 16MB en las placas de desarrollo)
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+
+# Indica a ESP-IDF que para este chip use una tabla de particiones personalizada
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_p4.csv"
+CONFIG_PARTITION_TABLE_FILENAME="partitions_p4.csv"
