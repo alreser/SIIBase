@@ -1,0 +1,14 @@
+ACLARAR COMO FUNCIONAN LA INCLUSIÓN DE COMPONENTES EN ESP-IDF UTILIZANDO EL CMakeLists.txt en la carpeta del main 
+y en la carpeta del componente para que ESPIDF lo reconozca como componente. 
+
+
+Please look out for component in 'https://components.espressif.com' and add using 'idf.py add-dependency' command.
+
+
+explicar el usao de kconfig en la carpeta de thingsboard
+
+idf.py add-dependency "espressif/mqtt"
+idf.py add-dependency "espressif/thingsboard"
+
+crear componente por ejemplo [storage] dentro de la estructura que tenemos components/services desde la raiz del proyecto
+idf.py -C components/service create-component storage

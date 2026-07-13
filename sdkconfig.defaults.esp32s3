@@ -1,0 +1,6 @@
+# Particularidades del ESP32-S3 (usado en Celda Robot, Flota 4G, Seguidor
+# Solar, AutoLog). Muchas devkits S3 traen PSRAM octal — ajustar si la
+# placa entregada no la tiene.
+CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240=y
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y

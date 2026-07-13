@@ -1,0 +1,4 @@
+# Particularidades del ESP32 "clásico" (dual-core Xtensa, sin PSRAM por defecto).
+# Se aplica automáticamente cuando se corre: idf.py set-target esp32
+CONFIG_ESP32_DEFAULT_CPU_FREQ_240=y
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y

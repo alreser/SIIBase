@@ -1,0 +1,41 @@
+menu "SIIBase Configuracion del proyecto"
+
+    menu "WiFi"
+        config APP_WIFI_SSID
+            string "WiFi SSID"
+            default ""
+            help
+                Dejar vacío para forzar carga desde main/secrets.h en vez de
+                sdkconfig (evita subir credenciales al repo por error).
+
+        config APP_WIFI_MAXIMUM_RETRY
+            int "Máximo de reintentos de conexión WiFi"
+            default 5
+    endmenu
+
+    menu "ThingsBoard"
+        config APP_TB_MQTT_HOST
+            string "Host del broker MQTT de ThingsBoard"
+            default "demo.thingsboard.io"
+
+        config APP_TB_MQTT_PORT
+            int "Puerto MQTT (TLS)"
+            default 8883
+
+        config APP_TB_TELEMETRY_PERIOD_MS
+            int "Período por defecto de publicación de telemetría (ms)"
+            default 15000
+            help
+                Cada proyecto puede sobreescribir esto en runtime vía
+                shared attribute, este valor es solo el default de arranque.
+    endmenu
+
+    menu "Hardware del proyecto (completar por equipo)"
+        comment "Definir acá los GPIO específicos del TP: sensores, actuadores, buses I2C/UART/CAN, etc."
+
+        config APP_STATUS_LED_GPIO
+            int "GPIO del LED de estado"
+            default 2
+    endmenu
+
+endmenu

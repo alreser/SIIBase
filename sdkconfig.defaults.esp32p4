@@ -1,0 +1,4 @@
+# Particularidades del ESP32-P4 (TP 8: control por visión/gestos).
+# El P4 no tiene WiFi/BT propio: la conectividad se resuelve vía el
+# ESP32-C6 co-procesado (esp_hosted / SDIO). Ver docs/boards/esp32p4.md.
+CONFIG_SPIRAM=y

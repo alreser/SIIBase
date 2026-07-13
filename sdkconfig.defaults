@@ -1,0 +1,22 @@
+# Config base compartida por todos los targets (ESP32 / ESP32-S3 / ESP32-P4).
+# Las particularidades de cada placa van en sdkconfig.defaults.<target>
+
+# --- FreeRTOS ---
+CONFIG_FREERTOS_HZ=1000
+
+# --- Logging ---
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# --- NVS / Partition table ---
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# --- MQTT (esp-mqtt) ---
+CONFIG_MQTT_PROTOCOL_311=y
+CONFIG_MQTT_TRANSPORT_SSL=y
+
+# --- WiFi ---
+CONFIG_ESP_WIFI_SW_COEXIST_ENABLE=y
+
+# --- mbedTLS: necesario para MQTT sobre TLS contra ThingsBoard Cloud ---
+CONFIG_MBEDTLS_SSL_ALPN=y

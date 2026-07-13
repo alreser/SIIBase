@@ -1,0 +1,13 @@
+# Las opciones de host/puerto/período de ThingsBoard están centralizadas en
+# main/Kconfig.projbuild (menú "ThingsBoard") para que todo el proyecto
+# comparta un único lugar de configuración. Este archivo queda como punto
+# de extensión para opciones internas del servicio que no apliquen a nivel
+# de proyecto.
+
+menu "services/thingsboard (avanzado)"
+
+    config THINGSBOARD_RPC_MAX_HANDLERS
+        int "Máximo de métodos RPC registrables"
+        default 8
+
+endmenu
