@@ -7,7 +7,7 @@ convenciones estándar de tópicos ("Basic MQTT API"). No se usa HTTP ni CoAP.
 
 Cada dispositivo se autentica con **Access Token** (MQTT username = token,
 sin password), configurado vía `menuconfig` o en `main/secrets.h`
-(no versionado). Para escenarios que lo requieran (AutoLog, Flota 4G) se
+(no versionado para no subir a github claves de acceso). Para escenarios que lo requieran (AutoLog, Flota 4G) se
 puede migrar a X.509 más adelante; el cliente MQTT (`services/thingsboard`)
 está aislado del mecanismo de auth para no romper el resto del código si
 eso cambia.

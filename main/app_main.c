@@ -50,8 +50,14 @@ void app_main(void)
             return;
         }
         
-         vTaskDelay(1000 / portTICK_PERIOD_MS);
+         vTaskDelay(2000 / portTICK_PERIOD_MS);
 
+           err = led_status_set(false);
+        if (err != ESP_OK) {
+            ESP_LOGE(TAG, "Error encendiendo LED de estado: %s", esp_err_to_name(err));
+            return;
+        }
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
     
 

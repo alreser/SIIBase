@@ -7,7 +7,7 @@
 //
 // No usa un event bus propio: la conexión/desconexión se puede consultar
 // en cualquier momento con tb_client_is_connected(). Si tu lógica necesita
-// reaccionar a la reconexión (por ejemplo, drenar el buffer de sesiones),
+// reaccionar a la reconexión (por ejemplo, enviar el buffer de sesiones),
 // consultá este flag desde tu propia task en vez de depender de un callback.
 
 #pragma once
