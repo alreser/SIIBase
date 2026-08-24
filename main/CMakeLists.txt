@@ -4,6 +4,8 @@ idf_component_register(
     REQUIRES freertos 
             esp_driver_gpio 
             led_status
+            pwm
+            relay
             
    
 )

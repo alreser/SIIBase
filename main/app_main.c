@@ -25,6 +25,8 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 #include "board_pins.h"
+#include "pwm.h"
+#include "relay.h"
 
 #include "led_status.h"
 
@@ -40,12 +42,71 @@ void app_main(void)
         return;
     }
   
+    // pwm_t pwm = {0}; 
+    // err = pwm_init(&pwm, &(pwm_config_t){
+    //                .gpio = PIN_PWM_TRANSISTOR, 
+    //                .freq_hz = 50, 
+    //                .resolution = 12
+                    
+    // });
+    // if (err != ESP_OK){
+    //     ESP_LOGE(TAG, "Error inicializando el pwm: %s", esp_err_to_name(err));
+    //     return;
+    // }
+
+
+    relay_t rele_alarma = {0}; 
+    err = relay_init(&rele_alarma, &(relay_config_t){
+                                .gpio_num = PIN_RELAY_ALARMA, 
+                                .initial_state_on = false, 
+                                .active_low=false }); 
+    if (err != ESP_OK){
+        ESP_LOGE(TAG, "Error inicializando el Ralay Alarma: %s", esp_err_to_name(err));
+        return;
+    }
+
 
 
     while (1)
     {
-        /* code */
- 
+    
+   
+ err = relay_toggle(&rele_alarma);
+
+    if (err != ESP_OK){
+        ESP_LOGE(TAG, "Fallo el cambio en Ralay Alarma: %s", esp_err_to_name(err));
+        return;
+    }
+
+        /* code */ 
+         // lanzo una senal pwm que crece desde de 0voltios a 3,3v durando 5 segundo para ver el crecimiento de la intensidad por Vef.
+        // float duty=0; 
+        // for (int i = 0; i < 410; i++)
+        // {
+        //     //itero cambiando la cargar del pwm para incrementer el Vef
+        //     // defini una resolución de 12 bits => 4096 opciones así que sería de 0 a 3,3V en 4096 partes => 0,0008 v/parte.        
+        //     //count += 10; 
+        //      duty = ((float)i/409)*100;
+        //     ESP_LOGI(TAG, "i=[%d],  Duty => %0.2f ", i, duty);
+        //        err = pwm_set_duty_percent(&pwm, duty); 
+        //          if (err != ESP_OK){
+        //         ESP_LOGE(TAG, "Error  al asignar valor porcentual al pwm : %s, freq: %f", esp_err_to_name(err), pwm.freq_hz);
+        //         return;
+        //         }
+               
+        //         vTaskDelay(80 / portTICK_PERIOD_MS); 
+
+        // }
+        // vTaskDelay(2000 / portTICK_PERIOD_MS); 
+        // //reseteo el pwm a 0 
+        //     err = pwm_set_duty_percent(&pwm, 0); 
+        //          if (err != ESP_OK){
+        //         ESP_LOGE(TAG, "Error  al asignar valor porcentual al pwm : %s, freq: %f", esp_err_to_name(err), pwm.freq_hz);
+        //         return;
+        //         }
+
+
+
 
         err = led_status_set(true);
         if (err != ESP_OK) {

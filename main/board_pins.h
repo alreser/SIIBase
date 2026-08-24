@@ -7,11 +7,11 @@
 
 // --- Relés ---
 //#define PIN_RELAY_PUERTA      GPIO_NUM_22
-//#define PIN_RELAY_ALARMA      GPIO_NUM_13
+#define PIN_RELAY_ALARMA      GPIO_NUM_13
 
 
 // ---- PWM  output ---- 
-//#define PIN_PWM_TRANSISTOR     GPIO_NUM_18
+#define PIN_PWM_TRANSISTOR     GPIO_NUM_18
 
 // ---- Analog Output ----
 
