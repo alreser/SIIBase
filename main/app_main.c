@@ -24,6 +24,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "board_pins.h"
 
 #include "led_status.h"
 
@@ -38,11 +39,13 @@ void app_main(void)
         ESP_LOGE(TAG, "Error inicializando LED de estado: %s", esp_err_to_name(err));
         return;
     }
+  
 
 
     while (1)
     {
         /* code */
+ 
 
         err = led_status_set(true);
         if (err != ESP_OK) {

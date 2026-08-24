@@ -36,6 +36,12 @@ menu "SIIBase Configuracion del proyecto"
         config APP_STATUS_LED_GPIO
             int "GPIO del LED de estado"
             default 2
+       
+        config APP_RELAY_SAMPLE1_GPIO
+            int "GPIO de control conectado al módulo de relés. ln1"
+            default 22    
+            
+
     endmenu
 
 endmenu

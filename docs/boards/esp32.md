@@ -11,3 +11,6 @@ Notas específicas para el target `esp32` (dual-core Xtensa LX6).
 Completar acá el pinout específico del hardware entregado para cada TP
 (qué GPIO va a cada sensor/actuador), o documentarlo en el README del
 proyecto derivado del template.
+
+Para más información sobre los pines disponibles y sus capacidades, podés ver =>
+https://lastminuteengineers.com/esp32-pinout-reference/

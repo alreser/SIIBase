@@ -12,3 +12,32 @@ idf.py add-dependency "espressif/thingsboard"
 
 crear componente por ejemplo [storage] dentro de la estructura que tenemos components/services desde la raiz del proyecto
 idf.py -C components/service create-component storage
+
+
+
+      // lanzo una senal pwm que crece desde de 0voltios a 3,3v durando 5 segundo para ver el crecimiento de la intensidad por Vef.
+        float duty=0; 
+        for (int i = 0; i < 410; i++)
+        {
+            //itero cambiando la cargar del pwm para incrementer el Vef
+            // defini una resolución de 12 bits => 4096 opciones así que sería de 0 a 3,3V en 4096 partes => 0,0008 v/parte.        
+            //count += 10; 
+             duty = ((float)i/409)*100;
+            ESP_LOGI(TAG, "i=[%d],  Duty => %0.2f ", i, duty);
+               err = pwm_set_duty_percent(&pwm, duty); 
+                 if (err != ESP_OK){
+                ESP_LOGE(TAG, "Error  al asignar valor porcentual al pwm : %s, freq: %f", esp_err_to_name(err), pwm.freq_hz);
+                return;
+                }
+               
+                vTaskDelay(80 / portTICK_PERIOD_MS); 
+
+        }
+        vTaskDelay(2000 / portTICK_PERIOD_MS); 
+        //reseteo el pwm a 0 
+            err = pwm_set_duty_percent(&pwm, 0); 
+                 if (err != ESP_OK){
+                ESP_LOGE(TAG, "Error  al asignar valor porcentual al pwm : %s, freq: %f", esp_err_to_name(err), pwm.freq_hz);
+                return;
+                }
+        
